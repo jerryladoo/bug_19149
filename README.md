@@ -31,7 +31,7 @@ What's inside?
             zip:
                 source: destination.local
                 destination: local
-                working: ~    // this is the field with default value
+                working_dir: ~    // this is the field with default value
                 use: ~        // same as above
                 lib:
                     command:

@@ -10,31 +10,33 @@ What's inside?
 
 * Symfony Standard Edition 2.7
 * Composer
-* A simple command called `try:me`
-* a simple config file `bug19149.yml`, which contains two nodes, `working_dir` and `use` with default values, `/tmp` and `ZipArchive` respectively 
-```
-// default
-bug19149_reproducing:
-    archiver:
-        zip:
-            source: destination.local
-            destination: local
-            lib:
-                command:
-                  standard: 'zip -r %%s %%s'
+* A simple bundle to reproduce this bug: ReproducingBundle, which contains:
+    * A simple command called `try:me`
+    * a simple config file `bug19149.yml`, which contains two nodes, `working_dir` and `use` with default values, `/tmp` and `ZipArchive` respectively
 
-// or you can change to this for seeing different result
-bug19149_reproducing:
-    archiver:
-        zip:
-            source: destination.local
-            destination: local
-            working: ~    // this is the field with default value
-            use: ~        // same as above
-            lib:
-                command:
-                  standard: 'zip -r %%s %%s'
-```
+    ```
+    // default
+    bug19149_reproducing:
+        archiver:
+            zip:
+                source: destination.local
+                destination: local
+                lib:
+                    command:
+                      standard: 'zip -r %%s %%s'
+    
+    // or you can change to this for seeing different result
+    bug19149_reproducing:
+        archiver:
+            zip:
+                source: destination.local
+                destination: local
+                working: ~    // this is the field with default value
+                use: ~        // same as above
+                lib:
+                    command:
+                      standard: 'zip -r %%s %%s'
+    ```
 
 How to reproduce it
 --------------

@@ -1,0 +1,4 @@
+services:
+#    bug19149_reproducing.example:
+#        class: Bug19149\ReproducingBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

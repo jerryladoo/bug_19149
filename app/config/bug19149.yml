@@ -1,0 +1,10 @@
+bug19149_reproducing:
+    archiver:
+        zip:
+            source: destination.local
+            destination: local
+            working_dir: ~
+            use: ~
+            lib:
+                command:
+                  standard: 'zip -r %%s %%s'

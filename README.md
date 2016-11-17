@@ -56,3 +56,18 @@ Bug19149\ReproducingBundle\DependencyInjection\Compiler\MyPass:
   [{"archiver":{"zip":{"source":"destination.local","destination":"local","lib":{"command":{"standard":"zip -r %%s %%s"}}}}}]
   
 ```
+
+Solution
+--------------
+According to the response from Symfony member, this is an expected behaviour as `getExtensionConfig` in compiler pass returns only unprocessed config while $config in extension is a processed config.
+
+The solution recommended is to set your config into container in your extension, and then get it out in compiler pass like so
+```
+// in your XxxxxExtension.php 
+$container->setParameter("config", $config); 
+```
+
+```
+// in your XxxxxCompilerPass.php 
+$container->getParameter("config");
+```

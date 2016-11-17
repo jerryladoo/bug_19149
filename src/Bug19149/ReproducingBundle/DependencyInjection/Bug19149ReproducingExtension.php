@@ -25,6 +25,7 @@ class Bug19149ReproducingExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
+        $container->setParameter("config", $config);
         // output config
         print_r(PHP_EOL);print_r(__CLASS__ . ": ");print_r(PHP_EOL);
         print_r("  ");print_r(json_encode($config));print_r(PHP_EOL);
